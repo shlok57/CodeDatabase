@@ -1,5 +1,5 @@
-# MissionCode
 Mission: Code atleast 3 algos each week
 
 Index: 
-Week1: Search, Sorting
+Searcing, Sorting: Binary Search, Linear Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort
+Graph : BFS, DFS, Dijsktra
