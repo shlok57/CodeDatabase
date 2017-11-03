@@ -9,7 +9,7 @@ def SelectionSort(array):
         min_index = j
     
     array[i], array[min_index] = array[min_index],array[i]
-        
+    print array    
   return array
   
 A = [10,1,8,6,4,7,9,2,3,5]
