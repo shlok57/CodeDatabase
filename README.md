@@ -1,6 +1,6 @@
-#Mission: Code atleast 3 algos each week
+# Mission: Code atleast 3 algos each week
 
-##Index:
+## Index:
 
 **Searcing, Sorting**: Binary Search, Linear Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort
 
