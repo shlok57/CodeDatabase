@@ -47,22 +47,19 @@ class Heap:
 				j = (j-1)/2	
 
 	def pop(self):
+		if self.heap == []:
+			return None
 		result = self.heap.pop(0)
+		if self.heap == []:
+			return result
 		self.heap = [self.heap[-1]] + self.heap[:-1]
 		self.heapify()
 		return result
 
-h = Heap([7,50,5,10,8,2,3])
-print h
 
-h.push(0)
-print h
+h = [7,50,5,10,8,2,3,0,51]
+n = len(h)
+heap = Heap(h)
 
-h.push(51)
-print h
-
-print h.pop()
-print h
-
-print h.pop()
-print h
+for i in range(n):
+	print heap.pop(), " ", 
