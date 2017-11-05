@@ -1,4 +1,4 @@
-# Mission: Code atleast 3 algos each week
+## Mission: Code atleast 3 algos each week
 
 ## Index:
 
@@ -7,3 +7,5 @@
 **Graph**: BFS, DFS, Dijsktra, Floyd Warshall, isCyclic-undirectedGraph
 
 **DataStructures**: LinkedList, Heap
+
+**Random**: Subsets
