@@ -4,7 +4,7 @@
 
 **Searcing, Sorting**: Binary Search, Linear Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Heap Sort
 
-**Graph**: BFS, DFS, Dijsktra, Floyd Warshall, isCyclic-undirectedGraph
+**Graph**: BFS, DFS, Dijsktra, Floyd Warshall, isCyclic-undirectedGraph, AVL
 
 **DataStructures**: LinkedList, Heap
 

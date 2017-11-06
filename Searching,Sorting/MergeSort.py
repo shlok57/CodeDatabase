@@ -38,7 +38,7 @@ def MergeSort(A, l, r):
   
   if l < r:
     
-    m = (l + r - 1)/2
+    m = (l + r)/2
     MergeSort(A,l,m)
     MergeSort(A,m+1,r)
     merge(A,l,m,r)

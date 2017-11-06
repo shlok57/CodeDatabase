@@ -34,5 +34,6 @@ a.addedge(2,4)
 a.addedge(3,4)
 a.addedge(3,5)
 a.addedge(4,5)
+a.addedge(5,0)
 
 a.DFS(0)
