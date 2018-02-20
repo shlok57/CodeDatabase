@@ -9,3 +9,5 @@
 **DataStructures**: LinkedList, Heap
 
 **Random**: Subsets
+
+**Dynamic Programming**: Coin Change, Matrix Chain Multiplication, Min Cost
