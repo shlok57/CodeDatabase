@@ -1,5 +1,3 @@
-## Mission: Code atleast 3 algos each week
-
 ## Index:
 
 **Searcing, Sorting**: Binary Search, Linear Search, Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Heap Sort, Quick Sort
@@ -10,4 +8,4 @@
 
 **Random**: Subsets
 
-**Dynamic Programming**: Coin Change, Matrix Chain Multiplication, Min Cost
+**Dynamic Programming**: Coin Change, Matrix Chain Multiplication, Min Cost, LCS, Palindrome LS, LIS 
