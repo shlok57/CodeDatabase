@@ -55,6 +55,24 @@ class BST:
 			temp = temp.right
 		return temp
 
+	def successor(self, x):
+		if x.right != None:
+			return self.minimum(x.right)
+		y = x.parent
+		while y != None and x == y.right:
+			x = y
+			y = y.parent
+		return y
+
+	def predecessor(self, x):
+		if x.left != None:
+			return self.maximum(x.left)
+		y = x.parent
+		while y != None and x == y.left:
+			x = y
+			y = y.parent
+		return y
+
 	def __str__(self):
 		result = ""
 		result = self.print_inorder(self.root, result)
@@ -256,10 +274,15 @@ if __name__ == "__main__":
 	A.insert(10)
 	A.insert(11)
 	A.insert(7)
-	print A
-	print "root ",
-	print A.root, A.root.color
 	A.dprint_inorder(A.root)
+	print "---------------------------------"
 	A.delete(A.root.right)
-	print A
 	A.dprint_inorder(A.root)
+	print "---------------------------------"
+	A.insert(9)
+	print "Predecessor - ", A.predecessor(A.root.right)
+	print "Successor - ", A.successor(A.root.right.left.right)
+	print "Minimum - ", A.minimum(A.root)
+	print "Maximum - ", A.maximum(A.root)
+	print "---------------------------------"
+	
