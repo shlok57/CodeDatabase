@@ -275,26 +275,99 @@ RED = "Red"
 BLACK = "Black"
 
 if __name__ == "__main__":
-	A = BST(5)
-	A.insert(2)
-	A.insert(3)
-	A.insert(6)
-	A.insert(8)
-	A.insert(9)
-	A.insert(10)
-	A.insert(11)
-	A.insert(7)
-	A.dprint_inorder(A.root)
-	print "---------------------------------"
-	A.delete(A.root.right)
-	A.dprint_inorder(A.root)
-	print "---------------------------------"
-	A.insert(9)
-	print "Predecessor - ", A.predecessor(A.root.right)
-	print "Successor - ", A.successor(A.root.right.left.right)
-	print "Minimum - ", A.minimum(A.root)
-	print "Maximum - ", A.maximum(A.root)
-	print "---------------------------------"
-	print "Search 7 - ", A.search(A.root, 7)
-	print "FSearch 1 - ", A.search(A.root, 1)
-	print "---------------------------------"
+	inp = raw_input().split()
+	if (len(inp) > 0):
+		A = BST(int(inp[0]))
+		for i in inp[1:]:
+			A.insert(int(i))	
+		A.dprint_inorder(A.root)
+	else:
+		print "Provide input"
+		exit(0)
+	cont = 1
+	while (cont):
+		print ""
+		print "Choose Option: "
+		print "1. Insert x"
+		print "2. Search x"
+		print "3. Delete x"
+		print "4. Minimum"
+		print "5. Maximum"
+		print "6. Successor of x"
+		print "7. Predecessor of x"
+		print "8. Sort"
+		print "9. Exit"
+		print ""
+		ans = raw_input()
+		answer = int(ans[0])
+		print ""
+		if answer == 1:
+			i = int(raw_input("Enter a num to be inserted: "))
+			A.insert(i)
+			print str(i) + " inserted"
+		elif answer == 2:
+			i = int(raw_input("Enter a num to be searched: "))
+			i = A.search(A.root, i)
+			if i != -1:
+				print str(i) + " found"
+			else:
+				print "Not Found"
+		elif answer == 3:
+			i = int(raw_input("Enter a num to be deleted: "))
+			temp = A.search(A.root, i)
+			if temp != -1:
+				print A.delete(temp)
+			else:
+				print "Not Found"
+		elif answer == 4:
+			print "Minimum - ",
+			print A.minimum(A.root)
+		elif answer == 5:
+			print "Maximum - ",
+			print A.maximum(A.root)
+		elif answer == 6:
+			i = int(raw_input("Enter a num to get the successor of: "))
+			temp = A.search(A.root, i)
+			if temp != -1:
+				temp = A.successor(temp)
+				print "Successor - " + temp
+			else:
+				print "Not Found"
+		elif answer == 7:
+			i = int(raw_input("Enter a num to get the predecessor of: "))
+			temp = A.search(A.root, i)
+			if temp != -1:
+				temp = A.predecessor(temp)
+				print "Predecessor - " + temp
+			else:
+				print "Not Found"
+		elif answer == 8:
+			print "Sorted Array: ", A
+		elif answer == 0:
+			A.dprint_inorder(A.root)
+		else:
+			cont = 0
+
+	# A = BST(5)
+	# A.insert(2)
+	# A.insert(3)
+	# A.insert(6)
+	# A.insert(8)
+	# A.insert(9)
+	# A.insert(10)
+	# A.insert(11)
+	# A.insert(7)
+	# A.dprint_inorder(A.root)
+	# print "---------------------------------"
+	# A.delete(A.root.right)
+	# A.dprint_inorder(A.root)
+	# print "---------------------------------"
+	# A.insert(9)
+	# print "Predecessor - ", A.predecessor(A.root.right)
+	# print "Successor - ", A.successor(A.root.right.left.right)
+	# print "Minimum - ", A.minimum(A.root)
+	# print "Maximum - ", A.maximum(A.root)
+	# print "---------------------------------"
+	# print "Search 7 - ", A.search(A.root, 7)
+	# print "FSearch 1 - ", A.search(A.root, 1)
+	# print "---------------------------------"
