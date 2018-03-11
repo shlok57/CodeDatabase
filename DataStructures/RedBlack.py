@@ -73,6 +73,16 @@ class BST:
 			y = y.parent
 		return y
 
+	def search(self, x, key):
+		if x == None:
+			return -1
+		if key == x.key:
+			return x
+		if key < x.key:
+			return self.search(x.left, key)
+		else:
+			return self.search(x.right, key)
+
 	def __str__(self):
 		result = ""
 		result = self.print_inorder(self.root, result)
@@ -285,4 +295,6 @@ if __name__ == "__main__":
 	print "Minimum - ", A.minimum(A.root)
 	print "Maximum - ", A.maximum(A.root)
 	print "---------------------------------"
-	
+	print "Search 7 - ", A.search(A.root, 7)
+	print "FSearch 1 - ", A.search(A.root, 1)
+	print "---------------------------------"
