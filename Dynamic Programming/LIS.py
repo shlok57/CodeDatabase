@@ -15,14 +15,20 @@ def LIS(A):
 		C[i] = maxi
 		S[i] = sel
 
-	print C
-	print S
-	print_Sol(A,S,n-1)
+	maxi = 0
+	sel = -1
+	for i in range(n):
+		if C[i] > maxi:
+			maxi = C[i]
+			sel = i
+	
+	print "LCS Length: " + str(maxi)
+	print_Sol(A,S,sel)
 
 def print_Sol(A, S, n):
 	if n != -1:
 		print_Sol(A, S, S[n])
 		print A[n],
 
-A = [1,2,0,2,4,3,7]
+A = [1,2,0,2,4,3,7,1]
 LIS(A)

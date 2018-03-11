@@ -6,6 +6,6 @@
 
 **DataStructures**: LinkedList, Heap
 
-**Random**: Subsets
+**Random**: Subsets, QuickSelect
 
 **Dynamic Programming**: Coin Change, Matrix Chain Multiplication, Min Cost, LCS, Palindrome LS, LIS 
