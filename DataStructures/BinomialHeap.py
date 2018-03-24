@@ -96,28 +96,36 @@ class BinomialHeap:
 				else:
 					k = size
 			# print "complete while"
-		# i = 0
-		# while i!= size:
-		# 	if self.roots[i] == None:
-		# 		self.roots.pop(i)
-		# 		size -= 1
-		# 	else:
-		# 		i += 1
+	
+	def make_Heap(self, l):
+		for i in l:
+			self.insert(i)
 
-	def printHeap(self):
+	def print_Heap(self):
 		# print self.roots
 		for i in self.roots:
 			i.printNode(i)
 		print
 
+	def get_Minimum(self):
+		size = len(self.roots)
+		mini = 999999
+		for i in range(size):
+			temp = self.roots[i]
+			if temp.data < mini:
+				mini = temp.data
+		return mini
+
 
 A = BinomialHeap()
-A.insert(2)
-A.insert(1)
-A.insert(3)
-A.insert(4)
-A.insert(9)
-A.insert(6)
-A.insert(8)
-A.insert(7)
-A.printHeap()
+A.make_Heap([2, 1, 3, 4, 9, 6, 8])
+# A.insert(2)
+# A.insert(1)
+# A.insert(3)
+# A.insert(4)
+# A.insert(9)
+# A.insert(6)
+# A.insert(8)
+# A.insert(7)
+A.print_Heap()
+print A.get_Minimum()
