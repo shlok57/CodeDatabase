@@ -330,7 +330,7 @@ if __name__ == "__main__":
 			temp = A.search(A.root, i)
 			if temp != -1:
 				temp = A.successor(temp)
-				print "Successor - " + temp
+				print "Successor - " + str(temp)
 			else:
 				print "Not Found"
 		elif answer == 7:
@@ -338,7 +338,7 @@ if __name__ == "__main__":
 			temp = A.search(A.root, i)
 			if temp != -1:
 				temp = A.predecessor(temp)
-				print "Predecessor - " + temp
+				print "Predecessor - " + str(temp)
 			else:
 				print "Not Found"
 		elif answer == 8:

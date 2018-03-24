@@ -19,9 +19,10 @@ class BinomialHeap:
 	def __init__(self):
 		self.roots = []
 
+	@staticmethod
 	def merge_Tree(n1, n2):
 		if n1.data > n2.data:
-			swap(n1,n2)
+			n1, n2 = n2, n1
 		n2.parent = n1
 		n2.sibling = n1.child
 		n1.child = n2
@@ -37,9 +38,10 @@ class BinomialHeap:
 		tempHeap.roots.append(n)
 		# print tempHeap.roots
 		self._union_Heaps(tempHeap)
-		print self.roots
+		# print self.roots
+		# print "while inserting ", n.data
 		self.adjust()
-		print self.roots
+		# print self.roots
 
 	def _union_Heaps(self, b2):
 		b1 = self
@@ -66,35 +68,41 @@ class BinomialHeap:
 		k=0
 		if size == 2:
 			j = 1
-			k = size - 1
+			k = size
 		else:
 			j = 1
 			k = 2
-		while i != size - 1:
-			if j == size - 1:
+		while i != size:
+			# print i, " ", j, " ", k, " ", size
+			if j == size:
 				i += 1
 			elif self.roots[i].degree < self.roots[j].degree:
 				i += 1
 				j += 1
 				if k != (size - 1):
 					k += 1
-			elif k != size - 1 and self.roots[i].degree == self.roots[j].degree \
+			elif k != size and self.roots[i].degree == self.roots[j].degree \
 					and self.roots[j].degree == self.roots[k].degree:
 				i += 1
 				j += 1
 				k += 1
 			elif self.roots[i].degree == self.roots[j].degree:
-				self.roots[i] = merge_Tree(self.roots[i], self.roots[j])
-				self.roots[j] = None
-				if k != size - 1:
-					k += 1
-		i = 0
-		while i!= size:
-			if self.roots[i] == None:
-				self.roots.pop(i)
+				self.roots[i] = self.merge_Tree(self.roots[i], self.roots[j])
+				# self.roots[j] = None
+				self.roots.pop(j)
 				size -= 1
-			else:
-				i += 1
+				if k < size:
+					k += 1
+				else:
+					k = size
+			# print "complete while"
+		# i = 0
+		# while i!= size:
+		# 	if self.roots[i] == None:
+		# 		self.roots.pop(i)
+		# 		size -= 1
+		# 	else:
+		# 		i += 1
 
 	def printHeap(self):
 		# print self.roots
@@ -106,4 +114,10 @@ class BinomialHeap:
 A = BinomialHeap()
 A.insert(2)
 A.insert(1)
+A.insert(3)
+A.insert(4)
+A.insert(9)
+A.insert(6)
+A.insert(8)
+A.insert(7)
 A.printHeap()
