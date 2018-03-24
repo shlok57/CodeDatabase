@@ -1,3 +1,4 @@
+# single node object 
 class Node:
 
     def __init__(self, data):
@@ -13,12 +14,13 @@ class Node:
     		self.printNode(node.child)
     		node = node.sibling
 
-    
+# Binomial Heap main structure
 class BinomialHeap:
 
 	def __init__(self):
 		self.roots = []
 
+	# merge heaps given two root nodes
 	@staticmethod
 	def merge_Tree(n1, n2):
 		if n1.data > n2.data:
@@ -29,10 +31,12 @@ class BinomialHeap:
 		n1.degree += 1
 		return n1
 
+	# insert a new node with given data in the heap
 	def insert(self, data):
 		tempNode = Node(data)
 		self._insert_Heap(tempNode)
 
+	# internal function to insert node in heap
 	def _insert_Heap(self, n):
 		tempHeap = BinomialHeap()
 		tempHeap.roots.append(n)
@@ -43,6 +47,7 @@ class BinomialHeap:
 		self.adjust()
 		# print self.roots
 
+	# union of two heap structures into one
 	def _union_Heaps(self, b2):
 		b1 = self
 		tempHeap = BinomialHeap()
@@ -59,6 +64,7 @@ class BinomialHeap:
 
 		self.roots = temp
 
+	# maintain binomial heap property and merge heaps of same degree
 	def adjust(self):
 		size = len(self.roots)
 		if size <= 1:
@@ -73,7 +79,6 @@ class BinomialHeap:
 			j = 1
 			k = 2
 		while i != size:
-			# print i, " ", j, " ", k, " ", size
 			if j == size:
 				i += 1
 			elif self.roots[i].degree < self.roots[j].degree:
@@ -95,18 +100,20 @@ class BinomialHeap:
 					k += 1
 				else:
 					k = size
-			# print "complete while"
 	
+	# make heap by inserting nodes with given data 	
 	def make_Heap(self, l):
 		for i in l:
 			self.insert(i)
 
+	# print Heap
 	def print_Heap(self):
 		# print self.roots
 		for i in self.roots:
 			i.printNode(i)
 		print
 
+	# get the minimum node of the heap
 	def get_Minimum(self):
 		size = len(self.roots)
 		mini = 999999
@@ -118,15 +125,13 @@ class BinomialHeap:
 				minNode = temp
 		return minNode
 
+	# extract (pop) the minimum node from the tree 
 	def extract_Minimum(self):
 		minNode = self.get_Minimum()
 		self.roots.remove(minNode)
 		tempHeap = BinomialHeap()
-		# tempHeap.roots = [minNode]
-		# return tempHeap
 		next_root = minNode.child
 		while next_root:
-			# next_root.sibling = None
 			tempHeap.roots.insert(0,next_root)
 			next_root = next_root.sibling
 		for i in tempHeap.roots:
@@ -136,6 +141,7 @@ class BinomialHeap:
 		minNode.child = minNode.parent = minNode.sibling = None
 		return minNode
 
+	# decrese data for a given node and mantain the heap
 	def decrease_Key(self, node, val):
 		if val > node.data:
 			return -1
@@ -147,14 +153,29 @@ class BinomialHeap:
 			y = z
 			z = z.parent
 
+	# delete the given node from the heap
 	def delete(self, node):
 		self.decrease_Key(node, -99999)
 		self.extract_Minimum()
 
-
+# declare a new binomial heap instance
 A = BinomialHeap()
-# A.make_Heap([2, 1, 3, 4, 9, 6, 8])
+
+# insert values into the heap
 A.make_Heap([2, 1, 3, 4, 9, 6, 8, 7])
+
+########## DEBUG STATEMENTS ###############
+
+A.print_Heap()
+print A.get_Minimum().data
+print A.extract_Minimum().data
+A.print_Heap()
+A.decrease_Key(A.roots[2].child.child, 5)
+print A.roots[2].child.child.data
+A.delete(A.roots[1].child)
+A.print_Heap()
+
+# A.make_Heap([2, 1, 3, 4, 9, 6, 8])
 # A.insert(2)
 # A.insert(1)
 # A.insert(3)
@@ -163,16 +184,8 @@ A.make_Heap([2, 1, 3, 4, 9, 6, 8, 7])
 # A.insert(6)
 # A.insert(8)
 # A.insert(7)
-A.print_Heap()
-print A.get_Minimum().data
-print A.extract_Minimum().data
-A.print_Heap()
-A.decrease_Key(A.roots[2].child.child, 5)
-print A.roots[2].child.child.data
-A.delete(A.roots[1].child)
 # print A.get_Minimum().data
 # print A.extract_Minimum().data
-A.print_Heap()
 # B = A.extract_Minimum()
 # B.print_Heap()
 # print "Child ", B.roots[0].child.data
