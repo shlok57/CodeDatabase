@@ -44,7 +44,10 @@ class HashTable:
 				key_node.count = value
 		else:
 			temp_next = self.hash_array[key_hash].next
-			self.hash_array[key_hash].next = HashNode(key, pos)
+			a = HashNode(key, pos)
+			self.hash_array[key_hash].next = a
+			if value != -1:
+				a.count = value
 			self.hash_array[key_hash].next.next = temp_next
 
 	def delete(self,key):
@@ -119,10 +122,16 @@ if __name__ == '__main__':
 				wc += 1
 				H.insert(i, -1, wc)
 
-	print H.find('soon')
-	H.increase('soon')
-	print H.find('soon')
-	H.delete('soon')
-	print H.find('soon')
+	
+	# print H.find('soon')
+	H.insert('random', 10)
+	H.increase('random')
+	print H.find('random')
+	H.delete('random')
+	print H.find('random')
 
-	H.print_hash()
+	print H.find('three')
+	H.increase('three')
+	print H.find('three')
+
+	# H.print_hash()

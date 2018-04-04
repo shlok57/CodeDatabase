@@ -167,11 +167,12 @@ class BST:
 				elif z == z.parent.right:
 					z = z.parent
 					self._left_rotate(z)
-				if z.parent != None:
-					z.parent.color = BLACK
-					if z.parent.parent != None:
-						z.parent.parent.color = RED 
-						self._right_rotate(z.parent.parent)
+				else:
+					if z.parent != None:
+						z.parent.color = BLACK
+						if z.parent.parent != None:
+							z.parent.parent.color = RED 
+							self._right_rotate(z.parent.parent)
 			else:
 				y = z.parent.parent.left
 				if y != None and y.color == RED:
@@ -182,11 +183,12 @@ class BST:
 				elif z == z.parent.left:
 					z = z.parent
 					self._right_rotate(z)
-				if z.parent != None:
-					z.parent.color = BLACK
-					if z.parent.parent != None:
-						z.parent.parent.color = RED 
-						self._left_rotate(z.parent.parent)
+				else:
+					if z.parent != None:
+						z.parent.color = BLACK
+						if z.parent.parent != None:
+							z.parent.parent.color = RED 
+							self._left_rotate(z.parent.parent)
 
 		self.root.color = BLACK
 
@@ -348,7 +350,31 @@ if __name__ == "__main__":
 		else:
 			cont = 0
 
-	# A = BST(5)
+	# A = BST()
+	# A.insert(101)
+	# A.insert(100)
+	# A.insert(99)
+	# A.insert(87)
+	# A.insert(30)
+	# A.insert(33)
+	# A.insert(24)
+	# # A.insert(30)
+		
+	# print A.root ,  " ", A.root .color
+	# # print A.root.parent ,  " ", A.root.parent.color
+	# print A.root.left,  " ", A.root.left.color
+	# print A.root.left.left,  " ", A.root.left.left.color
+	# print A.root.left.left.left,  " ", A.root.left.left.left.color
+	# print A.root.left.right,  " ", A.root.left.right.color
+	# print A.root.right,  " ", A.root.right.color
+	# print A.root.right.left,  " ", A.root.right.left.color
+	# print A.root.right.right,  " ", A.root.right.right.color
+	# print A.root.right.right.right,  " ", A.root.right.right.right.color
+	# print A.root.right.left.right,  " ", A.root.right.left.right.color
+	# print A.root.right.left.left,  " ", A.root.right.left.left.color
+	# print A.root.left.left
+	A.
+
 	# A.insert(2)
 	# A.insert(3)
 	# A.insert(6)
